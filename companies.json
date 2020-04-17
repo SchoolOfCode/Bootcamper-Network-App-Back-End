@@ -1,0 +1,35 @@
+[
+  {
+    "CompanyID": 1,
+    "Comapny-name": "Talis",
+    "Description": "Supplies education software and solutions",
+    "Logo": "www.talis.com/logo.png",
+    "Address": "Jewellery Quarter, Birmingham",
+    "Postcode": "B72 6PM",
+    "Website": "www.talis.com",
+    "Twitter": "www.twitter.com/talis",
+    "LinkedIn": "www.linkedin.com/talis"
+  },
+  {
+    "CompanyID": 2,
+    "Comapny-name": "Mcdonalds HQ",
+    "Description": "Giving the nation tasty burgers",
+    "Logo": "www.mcdonalds.com/logo.svg",
+    "Address": "Camden Market, London",
+    "Postcode": "W1 BAA",
+    "Website": "www.mcdonalds.com",
+    "Twitter": "www.twitter.com/mcdonalds",
+    "LinkedIn": "www.linkedin.com/mcdonalds"
+  },
+  {
+    "CompanyID": 3,
+    "Comapny-name": "Purple Bricks",
+    "Description": "Sorting out top gafs",
+    "Logo": "www.purplebricks.com/purplelogo.png",
+    "Address": "Solihull, Birmingham",
+    "Postcode": "B12 3SY",
+    "Website": "www.purplebricks.com",
+    "Twitter": "www.twitter.com/purplebricks",
+    "LinkedIn": "www.linkedin.com/purplebricks"
+  }
+]
