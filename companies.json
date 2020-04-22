@@ -1,14 +1,14 @@
 [
   {
-    "CompanyID": 1,
-    "Comapny-name": "Talis",
-    "Description": "Supplies education software and solutions",
-    "Logo": "www.talis.com/logo.png",
-    "Address": "Jewellery Quarter, Birmingham",
-    "Postcode": "B72 6PM",
-    "Website": "www.talis.com",
-    "Twitter": "www.twitter.com/talis",
-    "LinkedIn": "www.linkedin.com/talis"
+    "company_id": 1,
+    "company_name": "Talis",
+    "description": "Supplies education software and solutions",
+    "logo": "www.talis.com/logo.png",
+    "adddress": "Jewellery Quarter, Birmingham",
+    "postcode": "B72 6PM",
+    "website": "www.talis.com",
+    "twitter": "www.twitter.com/talis",
+    "linkedIn": "www.linkedin.com/talis"
   },
   {
     "CompanyID": 2,
