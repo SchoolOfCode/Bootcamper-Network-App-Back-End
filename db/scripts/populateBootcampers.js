@@ -1,0 +1,118 @@
+const { query } = require("../index");
+
+const bootcampers = [
+  {
+    bootcamper_id: 1,
+    first_name: "Jodie",
+    surname: "Neville",
+    profile: "Hi Bab, I am loving all of the code.",
+    job_title: "Full Stack Developer",
+    salary: "£50,000",
+    start_date: "2011-03-20",
+    previous_roles: "Full Stack Developer for Satander",
+    cohort_num: 3,
+    region: "Birmingham",
+    job_satisfaction: 4,
+    new_job: "yes",
+    twitter: "https://twitter.com/jodieneville",
+    github: "https://github.com/nevillejodie",
+    portfolio: "https://www.jodieneville.co.uk",
+    linkedin: "https://www.linkedin.com/in/jlneville/",
+  },
+  {
+    bootcamper_id: 2,
+    first_name: "Mell",
+    surname: "Kay",
+    profile: "A super developer who loves React Native.",
+    job_title: "Full Stack Developer",
+    salary: "£45,000",
+    start_date: "2018-07-14",
+    previous_roles: "Full Stack Developer for McDonalds",
+    cohort_num: 3,
+    region: "Birmingham",
+    job_satisfaction: 3,
+    new_job: "Yes",
+    twitter: "https://twitter.com/MellKayR",
+    github: "https://github.com/MellKay",
+    portfolio: "https://www.mellkay.co.uk",
+    linkedin: "",
+  },
+  {
+    bootcamper_id: 3,
+    first_name: "Helen",
+    surname: "Kent",
+    profile: "I love coding and avocados.",
+    job_title: "Full Stack Developer",
+    salary: "£100,000",
+    start_date: "2018-06-12",
+    previous_roles: "Full Stack Developer for Krispy Kreme",
+    cohort_num: 3,
+    region: "Birmingham",
+    job_satisfaction: 5,
+    new_job: "False",
+    twitter: "https://twitter.com/helen8297",
+    github: "https://github.com/helen8297",
+    portfolio: "https://www.helenkent.dev",
+    linkedin: "https://www.linkedin.com/in/helen8297/",
+  },
+];
+
+async function populateBootcampers() {
+  for (let i = 0; i < bootcampers.length; i++) {
+    const {
+      first_name,
+      surname,
+      profile,
+      job_title,
+      salary,
+      start_date,
+      previous_roles,
+      cohort_num,
+      region,
+      job_satisfaction,
+      new_job,
+      twitter,
+      github,
+      portfolio,
+      linkedin,
+    } = bootcampers[i];
+
+    const res = await query(
+      `INSERT INTO bootcampers (first_name,
+            surname,
+            profile,
+            job_title,
+            salary,
+            start_date,
+            previous_roles,
+            cohort_num,
+            region,
+            job_satisfaction,
+            new_job,
+            twitter,
+            github,
+            portfolio,
+            linkedin) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)`,
+      [
+        first_name,
+        surname,
+        profile,
+        job_title,
+        salary,
+        start_date,
+        previous_roles,
+        cohort_num,
+        region,
+        job_satisfaction,
+        new_job,
+        twitter,
+        github,
+        portfolio,
+        linkedin,
+      ]
+    );
+    console.log(`Log:Populated table with ${first_name} ${surname}`);
+  }
+}
+
+populateBootcampers();
