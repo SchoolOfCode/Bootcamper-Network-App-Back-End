@@ -15,14 +15,14 @@ async function getBootcamperByName(name) {
     region,
     job_satisfaction,
     new_job,
-    twitter,
+    bootcampers.twitter,
     github,
     portfolio,
-    linkedin FROM bootcampers INNER JOIN companies ON companies.company_id = bootcampers.company_id WHERE first_name OR surname ILIKE '%' || $1 || '%'`,
+    bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE first_name ILIKE '%' || $1 || '%'`,
     [name]
   );
   console.log(`GET: getbootcampername Results:${data} `);
-  return data.rows;
+  return data;
 }
 
 async function getBootcamperAndCompany(name) {
