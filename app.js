@@ -11,8 +11,8 @@ app.use((req, res, next) => {
 app.use(cors());
 app.use(express.json()); //to parse post requests
 
-app.get("/servertest", (req, res) => {
-  res.send("Hello I'm working!");
+app.get("/health", (req, res) => {
+  res.status(200).send("Hello I'm working!");
 });
 
 app.use(bootcampRouter);
