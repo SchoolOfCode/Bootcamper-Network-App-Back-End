@@ -12,7 +12,8 @@
     "dbpopulateBootcampers": "node -r dotenv/config ./db/scripts/populateBootcampers.js",
     "dbpopulateCompanies": "node -r dotenv/config ./db/scripts/populateCompanies.js",
     "dbdropbootcampertable": "node -r dotenv/config ./db/scripts/dropbootcampertable.js",
-    "dbdropcompaniestable": "node -r dotenv/config ./db/scripts/dropcompaniestable.js"
+    "dbdropcompaniestable": "node -r dotenv/config ./db/scripts/dropcompaniestable.js",
+    "dbreset": "npm run dbdropbootcampertable && npm run dbdropcompaniestable && npm run dbcreatecompaniestable && npm run dbcreatebootcampertable && npm run dbpopulateCompanies && npm run dbpopulateBootcampers"
   },
   "author": "",
   "license": "ISC",

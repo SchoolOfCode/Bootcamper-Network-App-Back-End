@@ -37,6 +37,17 @@ const companies = [
     twitter: "https://twitter.com/purplebricksuk",
     linkedin: "https://www.linkedin.com/company/purplebricks-com/",
   },
+  {
+    company_name: "The Economist",
+    description: "Making expensive magazines",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C560BAQGDT-4-61kkkg/company-logo_200_200/0?e=1595462400&v=beta&t=vr45N8X2daRolVZnW6JHpkzLabEfHz6B4ypHuaDkiQc",
+    address: "60 Church Street, Birmingham",
+    postcode: "B3 2DJ",
+    website: "https://economistgroupcareers.com/",
+    twitter: "https://twitter.com/economistcareer",
+    linkedin: "https://www.linkedin.com/company/the-economist/",
+  },
 ];
 
 async function populateCompanies() {
