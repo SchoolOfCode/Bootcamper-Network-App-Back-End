@@ -1,5 +1,6 @@
 const express = require("express");
 const bootcampRouter = require("./routes/bootcampers.js");
+const companyRouter = require("./routes/companies");
 const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use(bootcampRouter);
+app.use(companyRouter);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
