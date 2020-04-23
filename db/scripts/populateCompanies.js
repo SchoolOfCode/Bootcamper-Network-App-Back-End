@@ -7,11 +7,11 @@ const companies = [
     description: "Supplies education software and solutions",
     logo:
       "https://media-exp1.licdn.com/dms/image/C4E0BAQFYo6pg_o8tKg/company-logo_200_200/0?e=1595462400&v=beta&t=PEjSuAwiEgn_zTYrO35H4n5mcMFD3h_cOt-Dfp4DTZQ",
-    adddress: "Jewellery Quarter, Birmingham",
+    address: "Jewellery Quarter, Birmingham",
     postcode: "B72 6PM",
     website: "https://careers.talis.com/",
     twitter: "https://twitter.com/talis",
-    linkedIn: "https://www.linkedin.com/company/talis-group-ltd-/",
+    linkedin: "https://www.linkedin.com/company/talis-group-ltd-/",
   },
   {
     company_id: 2,
@@ -23,7 +23,7 @@ const companies = [
     postcode: "W1 BAA",
     website: "https://people.mcdonalds.co.uk/",
     twitter: "https://twitter.com/McDonalds",
-    linkedIn: "https://www.linkedin.com/company/mcdonald's-corporation/",
+    linkedin: "https://www.linkedin.com/company/mcdonald's-corporation/",
   },
   {
     company_id: 3,
@@ -35,7 +35,7 @@ const companies = [
     postcode: "B12 3SY",
     website: "https://purplebrickscareers.co.uk/",
     twitter: "https://twitter.com/purplebricksuk",
-    linkedIn: "https://www.linkedin.com/company/purplebricks-com/",
+    linkedin: "https://www.linkedin.com/company/purplebricks-com/",
   },
 ];
 
