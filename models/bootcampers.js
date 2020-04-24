@@ -49,13 +49,139 @@ async function getBootcamperByJobTitle(jobtitle) {
   return data.rows;
 }
 
-// name, profile pic, company, role
+async function createBootcamper({
+  first_name,
+  surname,
+  profile,
+  job_title,
+  company_id,
+  salary,
+  start_date,
+  previous_roles,
+  cohort_num,
+  region,
+  job_satisfaction,
+  new_job,
+  twitter,
+  github,
+  portfolio,
+  linkedin,
+}) {
+  const res = await query(
+    `INSERT INTO bootcampers(first_name,
+      surname,
+      profile,
+      job_title,
+      company_id,
+      salary,
+      start_date,
+      previous_roles,
+      cohort_num,
+      region,
+      job_satisfaction,
+      new_job,
+      twitter,
+      github,
+      portfolio,
+      linkedin) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING first_name`,
+    [
+      first_name,
+      surname,
+      profile,
+      job_title,
+      company_id,
+      salary,
+      start_date,
+      previous_roles,
+      cohort_num,
+      region,
+      job_satisfaction,
+      new_job,
+      twitter,
+      github,
+      portfolio,
+      linkedin,
+    ]
+  );
+  console.log(`Log: createBootcamper result ${res}`);
+  return `This has created a new bootcamper profile for name -> need to change this: ${res}`;
+}
 
-// get bootcamper info from bootcamper table
-// but get the company name for that bootcamper from the company table
-// join company on company ID as that's the relational field?
+async function updateBootcamper(body, id) {
+  const {
+    first_name,
+    surname,
+    profile,
+    job_title,
+    company_id,
+    salary,
+    start_date,
+    previous_roles,
+    cohort_num,
+    region,
+    job_satisfaction,
+    new_job,
+    twitter,
+    github,
+    portfolio,
+    linkedin,
+  } = body;
+  const res = await query(
+    `UPDATE bootcampers SET
+    first_name = COALESCE($1, first_name),
+    surname = COALESCE($2, surname),
+    profile = COALESCE($3, profile),
+    job_title = COALESCE($4, job_title),
+    company_id = COALESCE($5, company_id),
+    salary = COALESCE($6, salary),
+    start_date = COALESCE($7, start_date),
+    previous_roles = COALESCE($8, previous_roles),
+    cohort_num = COALESCE($9, cohort_num),
+    region = COALESCE($10, region),
+    job_satisfaction = COALESCE($11, job_satisfaction),
+    new_job = COALESCE($12, new_job),
+    twitter = COALESCE($13, twitter),
+    github = COALESCE($14, github),
+    portfolio = COALESCE($15, portfolio),
+    linkedin = COALESCE($16, linkedin) WHERE bootcamper_id = $17 RETURNING first_name`,
+    [
+      first_name,
+      surname,
+      profile,
+      job_title,
+      company_id,
+      salary,
+      start_date,
+      previous_roles,
+      cohort_num,
+      region,
+      job_satisfaction,
+      new_job,
+      twitter,
+      github,
+      portfolio,
+      linkedin,
+      id,
+    ]
+  );
+  console.log(`log updateBootcamper complete`);
+  return res.rows;
+}
+
+async function deleteBootcamper(id) {
+  const res = await query(
+    `DELETE FROM bootcampers WHERE bootcamper_id=$1 RETURNING first_name`,
+    [id]
+  );
+  console.log(`log: bootcamper has been deleted`);
+  return res.rows;
+}
+
 module.exports = {
   getBootcamperByName,
   getBootcamperByRegion,
   getBootcamperByJobTitle,
+  createBootcamper,
+  updateBootcamper,
+  deleteBootcamper,
 };
