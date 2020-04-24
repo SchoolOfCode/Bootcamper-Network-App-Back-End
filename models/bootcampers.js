@@ -127,7 +127,7 @@ async function updateBootcamper(body, id) {
     linkedin,
   } = body;
   const res = await query(
-    `UPDATE companies SET
+    `UPDATE bootcampers SET
     first_name = COALESCE($1, first_name),
     surname = COALESCE($2, surname),
     profile = COALESCE($3, profile),
@@ -143,7 +143,7 @@ async function updateBootcamper(body, id) {
     twitter = COALESCE($13, twitter),
     github = COALESCE($14, github),
     portfolio = COALESCE($15, portfolio),
-    linkedin = COALESCE($16, linkedin) WHERE bootcamper_id = $17 RETURNING bootcamper_name`,
+    linkedin = COALESCE($16, linkedin) WHERE bootcamper_id = $17 RETURNING first_name`,
     [
       first_name,
       surname,
@@ -165,7 +165,7 @@ async function updateBootcamper(body, id) {
     ]
   );
   console.log(`log updateBootcamper complete`);
-  return res.rows[0];
+  return res.rows;
 }
 
 async function deleteBootcamper(id) {
