@@ -2,6 +2,7 @@ const express = require("express");
 
 const {
   getCompanyByName,
+  getCompanyById,
   createCompany,
   updateCompany,
   deleteCompany,
@@ -11,8 +12,18 @@ const router = express.Router();
 
 router.get("/companies", async (req, res) => {
   const { companyname } = req.query;
+  const { id } = req.params;
   if (companyname) {
     const companysearch = await getCompanyByName(companyname);
+    res.json({
+      success: true,
+      message: "company searched",
+      payload: companysearch,
+    });
+    return;
+  }
+  if (id) {
+    const companysearch = await getCompanyById(id);
     res.json({
       success: true,
       message: "company searched",

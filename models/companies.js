@@ -11,7 +11,22 @@ async function getCompanyByName(companyname) {
     linkedin FROM companies WHERE company_name ILIKE '%' || $1 || '%'`,
     [companyname]
   );
-  console.log(`GET: getcompanyname Results:${data.rows} `);
+  console.log(`GET: Get company name Results:${data.rows} `);
+  return data.rows;
+}
+
+async function getCompanyById(id) {
+  const data = await query(
+    `SELECT company_name, 
+    description, 
+    address, 
+    postcode, 
+    website, 
+    twitter, 
+    linkedin FROM companies WHERE company_id ILIKE '%' || $1 || '%'`,
+    [id]
+  );
+  console.log(`GET: Get company name by ID Results:${data.rows} `);
   return data.rows;
 }
 
@@ -99,6 +114,7 @@ async function deleteCompany(id) {
 
 module.exports = {
   getCompanyByName,
+  getCompanyById,
   createCompany,
   updateCompany,
   deleteCompany,
