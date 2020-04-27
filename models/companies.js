@@ -15,7 +15,7 @@ async function getCompanyByName(companyname) {
   return data.rows;
 }
 
-async function getCompanyById(id) {
+async function getCompanyById(companyid) {
   const data = await query(
     `SELECT company_name, 
     description, 
@@ -24,7 +24,7 @@ async function getCompanyById(id) {
     website, 
     twitter, 
     linkedin FROM companies WHERE company_id ILIKE '%' || $1 || '%'`,
-    [id]
+    [companyid]
   );
   console.log(`GET: Get company name by ID Results:${data.rows} `);
   return data.rows;

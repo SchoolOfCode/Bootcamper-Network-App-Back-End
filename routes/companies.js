@@ -12,7 +12,6 @@ const router = express.Router();
 
 router.get("/companies", async (req, res) => {
   const { companyname } = req.query;
-  const { id } = req.params;
   if (companyname) {
     const companysearch = await getCompanyByName(companyname);
     res.json({
@@ -22,15 +21,17 @@ router.get("/companies", async (req, res) => {
     });
     return;
   }
-  if (id) {
-    const companysearch = await getCompanyById(id);
-    res.json({
-      success: true,
-      message: "company searched",
-      payload: companysearch,
-    });
-    return;
-  }
+});
+
+router.get("/companies/:companyid", async (req, res) => {
+  const { companyid } = req.params;
+  const companysearch = await getCompanyById(companyid);
+  res.json({
+    success: true,
+    message: "company searched",
+    payload: companysearch,
+  });
+  return;
 });
 
 router.post("/companies", async function (req, res) {
