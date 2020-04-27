@@ -13,6 +13,7 @@ const router = express.Router();
 
 router.get("/bootcampers", async (req, res) => {
   const { name, region, jobtitle } = req.query;
+try {
   if (name) {
     const bootcampersearch = await getBootcamperByName(name);
     res.json({
@@ -39,6 +40,9 @@ router.get("/bootcampers", async (req, res) => {
       payload: bootcampersearch,
     });
     return;
+  }} catch(error) {
+    console.log(error)
+    res.json(error)
   }
 });
 
