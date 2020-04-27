@@ -1,9 +1,16 @@
 const { query } = require("../db/index");
 
+async function getAllCompanies() {
+  const data = await query(`SELECT * FROM companies;`);
+  console.log(`GET: Get all companies Results:${data.rows} `);
+  return data.rows;
+}
+
 async function getCompanyByName(companyname) {
   const data = await query(
-    `SELECT company_name, 
+    `SELECT company_id, company_name, 
     description, 
+    logo,
     address, 
     postcode, 
     website, 
@@ -17,8 +24,9 @@ async function getCompanyByName(companyname) {
 
 async function getCompanyById(companyid) {
   const data = await query(
-    `SELECT company_name, 
+    `SELECT company_id, company_name, 
     description, 
+    logo,
     address, 
     postcode, 
     website, 
@@ -114,6 +122,7 @@ async function deleteCompany(id) {
 
 module.exports = {
   getCompanyByName,
+  getAllCompanies,
   getCompanyById,
   createCompany,
   updateCompany,

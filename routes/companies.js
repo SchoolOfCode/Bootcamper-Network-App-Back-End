@@ -2,6 +2,7 @@ const express = require("express");
 
 const {
   getCompanyByName,
+  getAllCompanies,
   getCompanyById,
   createCompany,
   updateCompany,
@@ -21,6 +22,13 @@ router.get("/companies", async (req, res) => {
     });
     return;
   }
+  const companysearch = await getAllCompanies();
+  res.json({
+    success: true,
+    message: "all companies",
+    payload: companysearch,
+  });
+  return;
 });
 
 router.get("/companies/:companyid", async (req, res) => {
