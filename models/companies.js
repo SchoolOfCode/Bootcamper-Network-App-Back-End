@@ -23,7 +23,7 @@ async function getCompanyById(companyid) {
     postcode, 
     website, 
     twitter, 
-    linkedin FROM companies WHERE company_id ILIKE '%' || $1 || '%'`,
+    linkedin FROM companies WHERE company_id = $1`,
     [companyid]
   );
   console.log(`GET: Get company name by ID Results:${data.rows} `);
