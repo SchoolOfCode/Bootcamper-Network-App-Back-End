@@ -1,6 +1,7 @@
 const express = require("express");
 
 const {
+  getAllBootcampers,
   getBootcamperByName,
   getBootcamperByUid,
   getBootcamperByCompanyId,
@@ -61,6 +62,13 @@ router.get("/bootcampers", async (req, res) => {
       });
       return;
     }
+    const bootcampersearch = await getAllBootcampers();
+    res.json({
+      success: true,
+      message: "All Bootcampers",
+      payload: bootcampersearch,
+    });
+    return;
   } catch (error) {
     console.log(error);
     res.json(error);

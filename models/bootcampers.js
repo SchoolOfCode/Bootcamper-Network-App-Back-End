@@ -1,5 +1,11 @@
 const { query } = require("../db/index");
 
+async function getAllBootcampers() {
+  const data = await query(`SELECT * FROM bootcampers`);
+  console.log(`GET: getallbootcampers Results:`, data.rows);
+  return data.rows;
+}
+
 async function getBootcamperByName(name) {
   const data = await query(
     `SELECT uid,
@@ -254,6 +260,7 @@ async function deleteBootcamper(id) {
 }
 
 module.exports = {
+  getAllBootcampers,
   getBootcamperByName,
   getBootcamperByUid,
   getBootcamperByCompanyId,
