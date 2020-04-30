@@ -2,9 +2,12 @@ const { query } = require("../db/index");
 
 async function getBootcamperByName(name) {
   const data = await query(
-    `SELECT first_name,
+    `SELECT uid,
+    email,
+    photourl,
+    first_name,
     surname,
-    profile,
+    aboutme,
     job_title,
     company_name,
     salary,
@@ -21,6 +24,33 @@ async function getBootcamperByName(name) {
     [name]
   );
   console.log(`GET: getbootcampername Results:${data.rows} `);
+  return data.rows;
+}
+
+async function getBootcamperByCompanyId(companyid) {
+  const data = await query(
+    `SELECT uid,
+    email,
+    photourl, 
+    first_name,
+    surname,
+    aboutme,
+    job_title,
+    company_name,
+    salary,
+    start_date,
+    previous_roles,
+    cohort_num,
+    region,
+    job_satisfaction,
+    new_job,
+    bootcampers.twitter,
+    github,
+    portfolio,
+    bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE companies.company_id = $1`,
+    [companyid]
+  );
+  console.log(`GET: getbootcamperbycompanyID Results:${data.rows} `);
   return data.rows;
 }
 
@@ -50,9 +80,12 @@ async function getBootcamperByJobTitle(jobtitle) {
 }
 
 async function createBootcamper({
+  uid,
+  email,
+  photourl,
   first_name,
   surname,
-  profile,
+  aboutme,
   job_title,
   company_id,
   salary,
@@ -68,9 +101,13 @@ async function createBootcamper({
   linkedin,
 }) {
   const res = await query(
-    `INSERT INTO bootcampers(first_name,
+    `INSERT INTO bootcampers(
+      uid,
+      email,
+      photourl,
+      first_name,
       surname,
-      profile,
+      aboutme,
       job_title,
       company_id,
       salary,
@@ -83,11 +120,14 @@ async function createBootcamper({
       twitter,
       github,
       portfolio,
-      linkedin) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING first_name`,
+      linkedin) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING first_name`,
     [
+      uid,
+      email,
+      photourl,
       first_name,
       surname,
-      profile,
+      aboutme,
       job_title,
       company_id,
       salary,
@@ -109,9 +149,12 @@ async function createBootcamper({
 
 async function updateBootcamper(body, id) {
   const {
+    uid,
+    email,
+    photourl,
     first_name,
     surname,
-    profile,
+    aboutme,
     job_title,
     company_id,
     salary,
@@ -128,26 +171,32 @@ async function updateBootcamper(body, id) {
   } = body;
   const res = await query(
     `UPDATE bootcampers SET
-    first_name = COALESCE($1, first_name),
-    surname = COALESCE($2, surname),
-    profile = COALESCE($3, profile),
-    job_title = COALESCE($4, job_title),
-    company_id = COALESCE($5, company_id),
-    salary = COALESCE($6, salary),
-    start_date = COALESCE($7, start_date),
-    previous_roles = COALESCE($8, previous_roles),
-    cohort_num = COALESCE($9, cohort_num),
-    region = COALESCE($10, region),
-    job_satisfaction = COALESCE($11, job_satisfaction),
-    new_job = COALESCE($12, new_job),
-    twitter = COALESCE($13, twitter),
-    github = COALESCE($14, github),
-    portfolio = COALESCE($15, portfolio),
-    linkedin = COALESCE($16, linkedin) WHERE bootcamper_id = $17 RETURNING first_name`,
+    uid = COALESCE($1, uid),
+    email = COALESCE($2, email),
+    photourl = COALESCE($3, photo),
+    first_name = COALESCE($4, first_name),
+    surname = COALESCE($5, surname),
+    aboutme = COALESCE($6, aboutme),
+    job_title = COALESCE($7, job_title),
+    company_id = COALESCE($8, company_id),
+    salary = COALESCE($9, salary),
+    start_date = COALESCE($10, start_date),
+    previous_roles = COALESCE($11, previous_roles),
+    cohort_num = COALESCE($12, cohort_num),
+    region = COALESCE($13, region),
+    job_satisfaction = COALESCE($14, job_satisfaction),
+    new_job = COALESCE($15, new_job),
+    twitter = COALESCE($16, twitter),
+    github = COALESCE($17, github),
+    portfolio = COALESCE($18, portfolio),
+    linkedin = COALESCE($19, linkedin) WHERE bootcamper_id = $20 RETURNING first_name`,
     [
+      uid,
+      email,
+      photourl,
       first_name,
       surname,
-      profile,
+      aboutme,
       job_title,
       company_id,
       salary,
@@ -179,6 +228,7 @@ async function deleteBootcamper(id) {
 
 module.exports = {
   getBootcamperByName,
+  getBootcamperByCompanyId,
   getBootcamperByRegion,
   getBootcamperByJobTitle,
   createBootcamper,
