@@ -43,6 +43,7 @@ async function getBootcamperByUid(uid) {
     surname,
     aboutme,
     job_title,
+    bootcampers.company_id,
     company_name,
     salary,
     start_date,
@@ -54,7 +55,7 @@ async function getBootcamperByUid(uid) {
     bootcampers.twitter,
     github,
     portfolio,
-    bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE uid = $1`,
+    bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE uid = $1`,
     [uid]
   );
   console.log(`GET: getbootcamper by UID Results:`, data.rows);
@@ -65,11 +66,12 @@ async function getBootcamperByCompanyId(companyid) {
   const data = await query(
     `SELECT uid,
     email,
-    photourl, 
+    photourl,
     first_name,
     surname,
     aboutme,
     job_title,
+    bootcampers.company_id,
     company_name,
     salary,
     start_date,
@@ -81,7 +83,7 @@ async function getBootcamperByCompanyId(companyid) {
     bootcampers.twitter,
     github,
     portfolio,
-    bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE companies.company_id = $1`,
+    bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE companies.company_id = $1`,
     [companyid]
   );
   console.log(`GET: getbootcamperbycompanyID Results:`, data.rows);
@@ -94,7 +96,7 @@ async function getBootcamperByRegion(region) {
     surname,
     job_title,
     company_name,
-    region FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE region ILIKE '%' || $1 || '%'`,
+    region FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE region ILIKE '%' || $1 || '%'`,
     [region]
   );
   console.log(`GET: getBootcamperByRegion Results:`, data.rows);
@@ -106,7 +108,7 @@ async function getBootcamperByJobTitle(jobtitle) {
     `SELECT first_name,
     surname,
     job_title,
-    company_name FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE job_title ILIKE '%' || $1 || '%'`,
+    company_name FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE job_title ILIKE '%' || $1 || '%'`,
     [jobtitle]
   );
   console.log(`GET: getBootcamperByJobTitle Results:`, data.rows);
