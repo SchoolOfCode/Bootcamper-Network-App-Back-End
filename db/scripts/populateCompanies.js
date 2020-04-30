@@ -48,6 +48,17 @@ const companies = [
     twitter: "https://twitter.com/economistcareer",
     linkedin: "https://www.linkedin.com/company/the-economist/",
   },
+  {
+    company_name: "The School of Code",
+    description: "An amazing free coding bootcamp for everyone!",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C4E0BAQFJE7NbcQ156w/company-logo_200_200/0?e=1596067200&v=beta&t=49ZTCXmjMNF5frCkmT7d1dlPceqUR-oiJ5eYJiHS0lw",
+    address: "Up the stairs, Custard Factory",
+    postcode: "B9 4AA",
+    website: "https://www.schoolofcode.com/",
+    twitter: "https://twitter.com/theschoolofcode",
+    linkedin: "https://www.linkedin.com/school/school-of-code/",
+  },
 ];
 
 async function populateCompanies() {

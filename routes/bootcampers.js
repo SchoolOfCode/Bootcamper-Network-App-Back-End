@@ -2,6 +2,7 @@ const express = require("express");
 
 const {
   getBootcamperByName,
+  getBootcamperByCompanyId,
   getBootcamperByRegion,
   getBootcamperByJobTitle,
   createBootcamper,
@@ -12,37 +13,47 @@ const {
 const router = express.Router();
 
 router.get("/bootcampers", async (req, res) => {
-  const { name, region, jobtitle } = req.query;
-try {
-  if (name) {
-    const bootcampersearch = await getBootcamperByName(name);
-    res.json({
-      success: true,
-      message: "bootcamper searched",
-      payload: bootcampersearch,
-    });
-    return;
-  }
-  if (region) {
-    const bootcampersearch = await getBootcamperByRegion(region);
-    res.json({
-      success: true,
-      message: "bootcamper region searched",
-      payload: bootcampersearch,
-    });
-    return;
-  }
-  if (jobtitle) {
-    const bootcampersearch = await getBootcamperByJobTitle(jobtitle);
-    res.json({
-      success: true,
-      message: "bootcamper job title searched",
-      payload: bootcampersearch,
-    });
-    return;
-  }} catch(error) {
-    console.log(error)
-    res.json(error)
+  const { name, region, jobtitle, companyid } = req.query;
+  try {
+    if (name) {
+      const bootcampersearch = await getBootcamperByName(name);
+      res.json({
+        success: true,
+        message: "bootcamper searched",
+        payload: bootcampersearch,
+      });
+      return;
+    }
+    if (region) {
+      const bootcampersearch = await getBootcamperByRegion(region);
+      res.json({
+        success: true,
+        message: "bootcamper region searched",
+        payload: bootcampersearch,
+      });
+      return;
+    }
+    if (companyid) {
+      const bootcampersearch = await getBootcamperByCompanyId(companyid);
+      res.json({
+        success: true,
+        message: "bootcamper company ID searched",
+        payload: bootcampersearch,
+      });
+      return;
+    }
+    if (jobtitle) {
+      const bootcampersearch = await getBootcamperByJobTitle(jobtitle);
+      res.json({
+        success: true,
+        message: "bootcamper job title searched",
+        payload: bootcampersearch,
+      });
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+    res.json(error);
   }
 });
 
