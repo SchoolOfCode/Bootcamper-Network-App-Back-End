@@ -23,7 +23,34 @@ async function getBootcamperByName(name) {
     bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE first_name ILIKE '%' || $1 || '%'`,
     [name]
   );
-  console.log(`GET: getbootcampername Results:${data.rows} `);
+  console.log(`GET: getbootcampername Results:`, data.rows);
+  return data.rows;
+}
+
+async function getBootcamperByUid(uid) {
+  const data = await query(
+    `SELECT uid,
+    email,
+    photourl,
+    first_name,
+    surname,
+    aboutme,
+    job_title,
+    company_name,
+    salary,
+    start_date,
+    previous_roles,
+    cohort_num,
+    region,
+    job_satisfaction,
+    new_job,
+    bootcampers.twitter,
+    github,
+    portfolio,
+    bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE uid = $1`,
+    [uid]
+  );
+  console.log(`GET: getbootcamper by UID Results:`, data.rows);
   return data.rows;
 }
 
@@ -50,7 +77,7 @@ async function getBootcamperByCompanyId(companyid) {
     bootcampers.linkedin FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE companies.company_id = $1`,
     [companyid]
   );
-  console.log(`GET: getbootcamperbycompanyID Results:${data.rows} `);
+  console.log(`GET: getbootcamperbycompanyID Results:`, data.rows);
   return data.rows;
 }
 
@@ -63,7 +90,7 @@ async function getBootcamperByRegion(region) {
     region FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE region ILIKE '%' || $1 || '%'`,
     [region]
   );
-  console.log(`GET: getBootcamperByRegion Results:${data.rows} `);
+  console.log(`GET: getBootcamperByRegion Results:`, data.rows);
   return data.rows;
 }
 
@@ -75,7 +102,7 @@ async function getBootcamperByJobTitle(jobtitle) {
     company_name FROM companies INNER JOIN bootcampers ON bootcampers.company_id = companies.company_id WHERE job_title ILIKE '%' || $1 || '%'`,
     [jobtitle]
   );
-  console.log(`GET: getBootcamperByJobTitle Results:${data.rows} `);
+  console.log(`GET: getBootcamperByJobTitle Results:`, data.rows);
   return data.rows;
 }
 
@@ -143,8 +170,8 @@ async function createBootcamper({
       linkedin,
     ]
   );
-  console.log(`Log: createBootcamper result ${res}`);
-  return `This has created a new bootcamper profile for name -> need to change this: ${res}`;
+  console.log(`Log: createBootcamper result`, res);
+  return `This has created a new bootcamper profile for name`, res.success;
 }
 
 async function updateBootcamper(body, id) {
@@ -228,6 +255,7 @@ async function deleteBootcamper(id) {
 
 module.exports = {
   getBootcamperByName,
+  getBootcamperByUid,
   getBootcamperByCompanyId,
   getBootcamperByRegion,
   getBootcamperByJobTitle,

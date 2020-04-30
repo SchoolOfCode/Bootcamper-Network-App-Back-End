@@ -68,7 +68,7 @@ router.patch("/companies/:id", async function (req, res) {
 router.delete("/companies/:id", async function (req, res) {
   const { id } = req.params;
   const data = await deleteCompany(id);
-  console.log(`Log: You have deleted a company. Data: ${data}`);
+  console.log(`Log: You have deleted a company. Data:`, data);
   res.send(`You have deleted a company`);
 });
 

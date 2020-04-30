@@ -2,7 +2,7 @@ const { query } = require("../db/index");
 
 async function getAllCompanies() {
   const data = await query(`SELECT * FROM companies;`);
-  console.log(`GET: Get all companies Results:${data.rows} `);
+  console.log(`GET: Get all companies Results:`, data.rows);
   return data.rows;
 }
 
@@ -18,7 +18,7 @@ async function getCompanyByName(companyname) {
     linkedin FROM companies WHERE company_name ILIKE '%' || $1 || '%'`,
     [companyname]
   );
-  console.log(`GET: Get company name Results:${data.rows} `);
+  console.log(`GET: Get company name Results:`, data.rows);
   return data.rows;
 }
 
@@ -34,7 +34,7 @@ async function getCompanyById(companyid) {
     linkedin FROM companies WHERE company_id = $1`,
     [companyid]
   );
-  console.log(`GET: Get company name by ID Results:${data.rows} `);
+  console.log(`GET: Get company name by ID Results:`, data.rows);
   return data.rows;
 }
 
@@ -68,8 +68,8 @@ async function createCompany({
       linkedin,
     ]
   );
-  console.log(`Log: createCompany result ${res}`);
-  return `This has created a new company profile for name -> need to change this: ${res}`;
+  console.log(`Log: createCompany result`, res);
+  return `This has created a new company profile for name`, res.success;
 }
 
 async function updateCompany(body, id) {
@@ -116,7 +116,7 @@ async function deleteCompany(id) {
     `DELETE FROM companies WHERE company_id=$1 RETURNING company_name`,
     [id]
   );
-  console.log(`log: company ${id} has been deleted`);
+  console.log(`log: company`, id, `has been deleted`);
   return res.rows;
 }
 
