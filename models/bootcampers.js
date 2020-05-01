@@ -123,19 +123,22 @@ async function createBootcamper({
   surname,
   aboutme,
   job_title,
-  company_id,
+  company_id: unformattedCompany_id,
   salary,
   start_date,
   previous_roles,
-  cohort_num,
+  cohort_num: unformattedCohort_num,
   region,
-  job_satisfaction,
+  job_satisfaction: unformattedJob_satisfaction,
   new_job,
   twitter,
   github,
   portfolio,
   linkedin,
 }) {
+  const cohort_num = Number(unformattedCohort_num);
+  const job_satisfaction = Number(unformattedJob_satisfaction);
+  const company_id = Number(unformattedCompany_id);
   const res = await query(
     `INSERT INTO bootcampers(
       uid,
@@ -192,19 +195,22 @@ async function updateBootcamper(body, id) {
     surname,
     aboutme,
     job_title,
-    company_id,
+    company_id: unformattedCompany_id,
     salary,
     start_date,
     previous_roles,
-    cohort_num,
+    cohort_num: unformattedCohort_num,
     region,
-    job_satisfaction,
+    job_satisfaction: unformattedJob_satisfaction,
     new_job,
     twitter,
     github,
     portfolio,
     linkedin,
   } = body;
+  const cohort_num = Number(unformattedCohort_num);
+  const job_satisfaction = Number(unformattedJob_satisfaction);
+  const company_id = Number(unformattedCompany_id);
   const res = await query(
     `UPDATE bootcampers SET
     uid = COALESCE($1, uid),
