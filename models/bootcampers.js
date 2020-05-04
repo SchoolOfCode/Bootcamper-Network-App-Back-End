@@ -99,6 +99,34 @@ async function getBootcamperByCompanyId(companyid) {
   return data.rows;
 }
 
+async function getBootcamperByCompanyName(companyname) {
+  const data = await query(
+    `SELECT uid,
+    email,
+    photourl,
+    first_name,
+    surname,
+    aboutme,
+    job_title,
+    bootcampers.company_id,
+    company_name,
+    salary,
+    start_date,
+    previous_roles,
+    cohort_num,
+    region,
+    job_satisfaction,
+    new_job,
+    bootcampers.twitter,
+    github,
+    portfolio,
+    bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE company_name ILIKE '%' || $1 || '%'`,
+    [companyname]
+  );
+  console.log(`GET: getbootcamperbycompanyID Results:`, data.rows);
+  return data.rows;
+}
+
 async function getBootcamperByRegion(region) {
   const data = await query(
     `SELECT first_name,
@@ -282,6 +310,7 @@ module.exports = {
   getBootcamperByName,
   getBootcamperByUid,
   getBootcamperByCompanyId,
+  getBootcamperByCompanyName,
   getBootcamperByRegion,
   getBootcamperByJobTitle,
   createBootcamper,
