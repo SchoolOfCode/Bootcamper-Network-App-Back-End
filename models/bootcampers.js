@@ -34,6 +34,15 @@ async function getBootcamperByName(name) {
   return data.rows;
 }
 
+async function checkBootcamperByUid(uid) {
+  const data = await query(
+    `SELECT EXISTS (SELECT 1 FROM bootcampers WHERE uid = $1)`,
+    [uid]
+  );
+  console.log(`GET: getbootcamperCHECK by UID Results:`, data.rows);
+  return data.rows;
+}
+
 async function getBootcamperByUid(uid) {
   const data = await query(
     `SELECT uid,
@@ -278,4 +287,27 @@ module.exports = {
   createBootcamper,
   updateBootcamper,
   deleteBootcamper,
+  checkBootcamperByUid,
 };
+
+//PREVIOUS QUERY FOR SEARCH BY UID
+// `SELECT uid,
+//     email,
+//     photourl,
+//     first_name,
+//     surname,
+//     aboutme,
+//     job_title,
+//     bootcampers.company_id,
+//     company_name,
+//     salary,
+//     start_date,
+//     previous_roles,
+//     cohort_num,
+//     region,
+//     job_satisfaction,
+//     new_job,
+//     bootcampers.twitter,
+//     github,
+//     portfolio,
+//     bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE uid = $1`

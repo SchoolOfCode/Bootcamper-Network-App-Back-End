@@ -10,6 +10,7 @@ const {
   createBootcamper,
   updateBootcamper,
   deleteBootcamper,
+  checkBootcamperByUid,
 } = require("../models/bootcampers.js");
 
 const router = express.Router();
@@ -73,6 +74,17 @@ router.get("/bootcampers", async (req, res) => {
     console.log(error);
     res.json(error);
   }
+});
+
+router.get("/bootcampers/user", async function (req, res) {
+  const { uid } = req.query;
+  const bootcamperUIDsearch = await checkBootcamperByUid(uid);
+  res.json({
+    success: true,
+    message: "bootcamper UID checked",
+    payload: bootcamperUIDsearch,
+  });
+  return;
 });
 
 router.post("/bootcampers", async function (req, res) {
