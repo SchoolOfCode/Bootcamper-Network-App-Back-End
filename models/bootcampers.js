@@ -8,7 +8,7 @@ async function getAllBootcampers() {
 
 async function getBootcamperByName(name) {
   const data = await query(
-    `SELECT uid,
+    `SELECT bootcamper_id, uid,
     email,
     photourl,
     first_name,
@@ -45,7 +45,7 @@ async function checkBootcamperByUid(uid) {
 
 async function getBootcamperByUid(uid) {
   const data = await query(
-    `SELECT uid,
+    `SELECT bootcamper_id, uid,
     email,
     photourl,
     first_name,
@@ -103,7 +103,7 @@ async function getBootcamperById(id) {
 
 async function getBootcamperByCompanyId(companyid) {
   const data = await query(
-    `SELECT uid,
+    `SELECT bootcamper_id, uid,
     email,
     photourl,
     first_name,
@@ -131,7 +131,7 @@ async function getBootcamperByCompanyId(companyid) {
 
 async function getBootcamperByCompanyName(companyname) {
   const data = await query(
-    `SELECT uid,
+    `SELECT bootcamper_id, uid,
     email,
     photourl,
     first_name,
@@ -159,7 +159,7 @@ async function getBootcamperByCompanyName(companyname) {
 
 async function getBootcamperByRegion(region) {
   const data = await query(
-    `SELECT first_name,
+    `SELECT bootcamper_id, first_name,
     surname,
     job_title,
     company_name,
@@ -172,7 +172,7 @@ async function getBootcamperByRegion(region) {
 
 async function getBootcamperByJobTitle(jobtitle) {
   const data = await query(
-    `SELECT first_name,
+    `SELECT bootcamper_id, first_name,
     surname,
     job_title,
     company_name FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE job_title ILIKE '%' || $1 || '%'`,
