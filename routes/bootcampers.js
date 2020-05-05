@@ -4,6 +4,7 @@ const {
   getAllBootcampers,
   getBootcamperByName,
   getBootcamperByUid,
+  getBootcamperById,
   getBootcamperByCompanyId,
   getBootcamperByCompanyName,
   getBootcamperByRegion,
@@ -17,7 +18,15 @@ const {
 const router = express.Router();
 
 router.get("/bootcampers", async (req, res) => {
-  const { name, region, jobtitle, companyid, uid, companyname } = req.query;
+  const {
+    name,
+    region,
+    jobtitle,
+    companyid,
+    uid,
+    companyname,
+    bootcamper_id,
+  } = req.query;
   try {
     if (name) {
       const bootcampersearch = await getBootcamperByName(name);
@@ -84,6 +93,17 @@ router.get("/bootcampers", async (req, res) => {
     console.log(error);
     res.json(error);
   }
+});
+
+router.get("/bootcampers/id/:id", async function (req, res) {
+  const { id } = req.params;
+  const bootcampersearch = await getBootcamperById(id);
+  res.json({
+    success: true,
+    message: "bootcamper searched",
+    payload: bootcampersearch,
+  });
+  return;
 });
 
 router.get("/bootcampers/user", async function (req, res) {

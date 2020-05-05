@@ -71,6 +71,36 @@ async function getBootcamperByUid(uid) {
   return data.rows;
 }
 
+async function getBootcamperById(id) {
+  const data = await query(
+    `SELECT 
+    bootcamper_id, 
+    uid,
+    email,
+    photourl,
+    first_name,
+    surname,
+    aboutme,
+    job_title,
+    bootcampers.company_id,
+    company_name,
+    salary,
+    start_date,
+    previous_roles,
+    cohort_num,
+    region,
+    job_satisfaction,
+    new_job,
+    bootcampers.twitter,
+    github,
+    portfolio,
+    bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE bootcamper_id = $1`,
+    [id]
+  );
+  console.log(`GET: getbootcamper by UID Results:`, data.rows);
+  return data.rows;
+}
+
 async function getBootcamperByCompanyId(companyid) {
   const data = await query(
     `SELECT uid,
@@ -308,6 +338,7 @@ async function deleteBootcamper(id) {
 module.exports = {
   getAllBootcampers,
   getBootcamperByName,
+  getBootcamperById,
   getBootcamperByUid,
   getBootcamperByCompanyId,
   getBootcamperByCompanyName,
