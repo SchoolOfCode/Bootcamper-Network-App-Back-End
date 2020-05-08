@@ -282,7 +282,7 @@ async function updateBootcamper(body, id) {
     `UPDATE bootcampers SET
     uid = COALESCE($1, uid),
     email = COALESCE($2, email),
-    photo_url = COALESCE($3, photo),
+    photo_url = COALESCE($3, photo_url),
     first_name = COALESCE($4, first_name),
     surname = COALESCE($5, surname),
     aboutme = COALESCE($6, aboutme),
