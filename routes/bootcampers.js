@@ -13,6 +13,8 @@ const {
   updateBootcamper,
   deleteBootcamper,
   checkBootcamperByUid,
+  getBootcamperByJobSatisfaction,
+  getBootcamperByNewJob,
 } = require("../models/bootcampers.js");
 
 const router = express.Router();
@@ -113,6 +115,26 @@ router.get("/bootcampers/user", async function (req, res) {
     success: true,
     message: "bootcamper UID checked",
     payload: bootcamperUIDsearch,
+  });
+  return;
+});
+
+router.get("/bootcampers/jobsatisfaction", async function (req, res) {
+  const bootcamperjobsatisfaction = await getBootcamperByJobSatisfaction();
+  res.json({
+    success: true,
+    message: "bootcampers with low job satisfaction",
+    payload: bootcamperjobsatisfaction,
+  });
+  return;
+});
+
+router.get("/bootcampers/newjob", async function (req, res) {
+  const bootcampernewjob = await getBootcamperByNewJob();
+  res.json({
+    success: true,
+    message: "bootcampers that want new jobs",
+    payload: bootcampernewjob,
   });
   return;
 });

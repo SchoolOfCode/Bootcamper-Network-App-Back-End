@@ -47,7 +47,7 @@ async function getBootcamperByUid(uid) {
   const data = await query(
     `SELECT bootcamper_id, uid,
     email,
-    photo_url,
+    bootcampers.photo_url,
     first_name,
     surname,
     aboutme,
@@ -335,6 +335,34 @@ async function deleteBootcamper(id) {
   return res.rows;
 }
 
+async function getBootcamperByJobSatisfaction() {
+  const data = await query(
+    `SELECT bootcamper_id, uid,
+    photo_url,
+    first_name,
+    surname,
+    job_satisfaction,
+    new_job
+    FROM bootcampers WHERE job_satisfaction <= 3`
+  );
+  console.log(`GET: getbootcamperbyjobsatisfaction Results:`, data.rows);
+  return data.rows;
+}
+
+async function getBootcamperByNewJob() {
+  const data = await query(
+    `SELECT bootcamper_id, uid,
+    photo_url,
+    first_name,
+    surname,
+    job_satisfaction,
+    new_job
+    FROM bootcampers WHERE new_job = 'yes'`
+  );
+  console.log(`GET: getbootcamperbyjobsatisfaction Results:`, data.rows);
+  return data.rows;
+}
+
 module.exports = {
   getAllBootcampers,
   getBootcamperByName,
@@ -348,6 +376,8 @@ module.exports = {
   updateBootcamper,
   deleteBootcamper,
   checkBootcamperByUid,
+  getBootcamperByJobSatisfaction,
+  getBootcamperByNewJob,
 };
 
 //PREVIOUS QUERY FOR SEARCH BY UID
