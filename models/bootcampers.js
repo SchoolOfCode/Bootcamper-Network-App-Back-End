@@ -10,7 +10,7 @@ async function getBootcamperByName(name) {
   const data = await query(
     `SELECT bootcamper_id, uid,
     email,
-    photourl,
+    photo_url,
     first_name,
     surname,
     aboutme,
@@ -47,7 +47,7 @@ async function getBootcamperByUid(uid) {
   const data = await query(
     `SELECT bootcamper_id, uid,
     email,
-    photourl,
+    photo_url,
     first_name,
     surname,
     aboutme,
@@ -77,7 +77,7 @@ async function getBootcamperById(id) {
     bootcamper_id, 
     uid,
     email,
-    photourl,
+    photo_url,
     first_name,
     surname,
     aboutme,
@@ -105,7 +105,7 @@ async function getBootcamperByCompanyId(companyid) {
   const data = await query(
     `SELECT bootcamper_id, uid,
     email,
-    photourl,
+    photo_url,
     first_name,
     surname,
     aboutme,
@@ -133,7 +133,7 @@ async function getBootcamperByCompanyName(companyname) {
   const data = await query(
     `SELECT bootcamper_id, uid,
     email,
-    photourl,
+    photo_url,
     first_name,
     surname,
     aboutme,
@@ -185,7 +185,7 @@ async function getBootcamperByJobTitle(jobtitle) {
 async function createBootcamper({
   uid,
   email,
-  photourl,
+  photo_url,
   first_name,
   surname,
   aboutme,
@@ -210,7 +210,7 @@ async function createBootcamper({
     `INSERT INTO bootcampers(
       uid,
       email,
-      photourl,
+      photo_url,
       first_name,
       surname,
       aboutme,
@@ -230,7 +230,7 @@ async function createBootcamper({
     [
       uid,
       email,
-      photourl,
+      photo_url,
       first_name,
       surname,
       aboutme,
@@ -250,14 +250,14 @@ async function createBootcamper({
     ]
   );
   console.log(`Log: createBootcamper result`, res);
-  return `This has created a new bootcamper profile for name`, res.success;
+  return `This has created a new bootcamper profile for name ${res.success}`;
 }
 
 async function updateBootcamper(body, id) {
   const {
     uid,
     email,
-    photourl,
+    photo_url,
     first_name,
     surname,
     aboutme,
@@ -282,7 +282,7 @@ async function updateBootcamper(body, id) {
     `UPDATE bootcampers SET
     uid = COALESCE($1, uid),
     email = COALESCE($2, email),
-    photourl = COALESCE($3, photo),
+    photo_url = COALESCE($3, photo),
     first_name = COALESCE($4, first_name),
     surname = COALESCE($5, surname),
     aboutme = COALESCE($6, aboutme),
@@ -302,7 +302,7 @@ async function updateBootcamper(body, id) {
     [
       uid,
       email,
-      photourl,
+      photo_url,
       first_name,
       surname,
       aboutme,
@@ -353,7 +353,7 @@ module.exports = {
 //PREVIOUS QUERY FOR SEARCH BY UID
 // `SELECT uid,
 //     email,
-//     photourl,
+//     photo_url,
 //     first_name,
 //     surname,
 //     aboutme,

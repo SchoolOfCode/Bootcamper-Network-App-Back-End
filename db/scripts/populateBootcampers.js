@@ -5,7 +5,7 @@ const bootcampers = [
     bootcamper_id: 1,
     uid: "nsrVWUd00gQg5wsfULkOyZHeQsp2",
     email: "jlneville92@gmail.com",
-    photourl:
+    photo_url:
       "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-tipping-hand.png",
     first_name: "Jodie",
     surname: "Neville",
@@ -14,8 +14,8 @@ const bootcampers = [
     salary: "£50,000",
     start_date: "2011-03-20",
     previous_roles: [
-      "Full Stack Developer for Satander",
-      "Junior Developer for School of Code",
+      { jobTitle: "Full Stack Developer", Company: "Santander" },
+      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
     ],
     cohort_num: 3,
     region: "Birmingham",
@@ -30,7 +30,7 @@ const bootcampers = [
     bootcamper_id: 2,
     uid: "e1IAjCkCN2QOnn66lSrC2YlLRKs1",
     email: "mellkayrusson@gmail.com",
-    photourl:
+    photo_url:
       "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-tipping-hand.png",
     first_name: "Mell",
     surname: "Kay",
@@ -38,7 +38,10 @@ const bootcampers = [
     job_title: "Full Stack Developer",
     salary: "£45,000",
     start_date: "2018-07-14",
-    previous_roles: ["Full Stack Developer for McDonalds", "I was at college"],
+    previous_roles: [
+      { jobTitle: "Full Stack Developer", Company: "Santander" },
+      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
+    ],
     cohort_num: 3,
     region: "Birmingham",
     job_satisfaction: 3,
@@ -52,7 +55,7 @@ const bootcampers = [
     bootcamper_id: 3,
     uid: "1t42I7AR4vfImOXCk4VFuUhv6B72",
     email: "helen8297@gmail.com",
-    photourl:
+    photo_url:
       "https://lh3.googleusercontent.com/a-/AOh14GjrB5R5XShX5tTdqEEm2lFMEyUfylfnQstmhvHzfg",
     first_name: "Helen",
     surname: "Kent",
@@ -61,8 +64,8 @@ const bootcampers = [
     salary: "£100,000",
     start_date: "2018-06-12",
     previous_roles: [
-      "Full Stack Developer for Krispy Kreme",
-      "Primary School Teacher",
+      { jobTitle: "Full Stack Developer", Company: "Santander" },
+      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
     ],
     cohort_num: 3,
     region: "Birmingham",
@@ -77,7 +80,7 @@ const bootcampers = [
     bootcamper_id: 4,
     uid: "1t42I7AR4vfImOXCk4VFuUhv6B71",
     email: "benben@gmail.com",
-    photourl:
+    photo_url:
       "https://cdn2.vectorstock.com/i/1000x1000/24/31/with-guitar-pleurotus-erynggi-mushroom-mascot-vector-21182431.jpg",
     first_name: "Ben",
     surname: "Lee",
@@ -86,7 +89,10 @@ const bootcampers = [
     company_id: 3,
     salary: "£35,000",
     start_date: "2019-10-05",
-    previous_roles: ["Student at SoC", "Musician", "Worked in a chip shop"],
+    previous_roles: [
+      { jobTitle: "Full Stack Developer", Company: "Santander" },
+      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
+    ],
     cohort_num: 2,
     region: "Birmingham",
     job_satisfaction: 5,
@@ -100,7 +106,7 @@ const bootcampers = [
     bootcamper_id: 5,
     uid: "1t42I7AR4vfImOXCk4VFuUhv6B79",
     email: "laura.ashcroft@gmail.com",
-    photourl:
+    photo_url:
       "https://lh3.googleusercontent.com/a-/AOh14GjrB5R5XShX5tTdqEEm2lFMEyUfylfnQstmhvHzfg",
     first_name: "Laura",
     surname: "Ashcroft",
@@ -109,9 +115,8 @@ const bootcampers = [
     salary: "£45,000",
     start_date: "2019-10-28",
     previous_roles: [
-      "Forensic Apprentice for the po po",
-      "Worked in a school",
-      "Worked in a gym",
+      { jobTitle: "Full Stack Developer", Company: "Santander" },
+      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
     ],
     cohort_num: 4,
     region: "Birmingham",
@@ -129,7 +134,7 @@ async function populateBootcampers() {
     const {
       uid,
       email,
-      photourl,
+      photo_url,
       first_name,
       surname,
       aboutme,
@@ -148,7 +153,7 @@ async function populateBootcampers() {
     } = bootcampers[i];
 
     const res = await query(
-      `INSERT INTO bootcampers (uid, email, photourl, first_name, surname,
+      `INSERT INTO bootcampers (uid, email, photo_url, first_name, surname,
             aboutme,
             job_title,
             salary,
@@ -165,7 +170,7 @@ async function populateBootcampers() {
       [
         uid,
         email,
-        photourl,
+        photo_url,
         first_name,
         surname,
         aboutme,
