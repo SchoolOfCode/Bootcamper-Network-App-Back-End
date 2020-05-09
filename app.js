@@ -25,9 +25,9 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
-  socket.on("chatMessage", (message) => {
-    console.log("message:", message);
-    io.emit("chatMessage", { message });
+  socket.on("chatMessage", (myMessage) => {
+    console.log("message received from front end:", myMessage);
+    io.emit("chatMessage", myMessage);
   });
 });
 
@@ -38,6 +38,3 @@ app.use(eventRouter);
 http.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
-
-//when message sent post date, time, uid, photourl, firstname & message to server
-//when message page loaded
