@@ -2,7 +2,8 @@ const express = require("express");
 const bootcampRouter = require("./routes/bootcampers.js");
 const companyRouter = require("./routes/companies");
 const eventRouter = require("./routes/events");
-/* const messageRouter = require("./routes/messages") */
+const dashboardRouter = require("./routes/dashboard");
+
 const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
@@ -34,7 +35,8 @@ io.on("connection", (socket) => {
 app.use(bootcampRouter);
 app.use(companyRouter);
 app.use(eventRouter);
-/* app.use(messageRouter) */
+app.use(dashboardRouter);
+
 http.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
