@@ -2,7 +2,8 @@ const express = require("express");
 const bootcampRouter = require("./routes/bootcampers.js");
 const companyRouter = require("./routes/companies");
 const eventRouter = require("./routes/events");
-/* const messageRouter = require("./routes/messages") */
+const dashboardRouter = require("./routes/dashboard");
+
 const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
@@ -25,19 +26,17 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
-  socket.on("chatMessage", (message) => {
-    console.log("message:", message);
-    io.emit("chatMessage", { message });
+  socket.on("chatMessage", (myMessage) => {
+    console.log("message received from front end:", myMessage);
+    io.emit("chatMessage", myMessage);
   });
 });
 
 app.use(bootcampRouter);
 app.use(companyRouter);
 app.use(eventRouter);
-/* app.use(messageRouter) */
+app.use(dashboardRouter);
+
 http.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
-
-//when message sent post date, time, uid, photourl, firstname & message to server
-//when message page loaded
