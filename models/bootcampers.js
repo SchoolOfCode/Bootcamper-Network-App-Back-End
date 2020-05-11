@@ -161,6 +161,7 @@ async function getBootcamperByRegion(region) {
   const data = await query(
     `SELECT bootcamper_id, first_name,
     surname,
+    photo_url,
     job_title,
     company_name,
     region FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE region ILIKE '%' || $1 || '%'`,
@@ -172,7 +173,7 @@ async function getBootcamperByRegion(region) {
 
 async function getBootcamperByJobTitle(jobtitle) {
   const data = await query(
-    `SELECT bootcamper_id, first_name,
+    `SELECT bootcamper_id, first_name, photo_url,
     surname,
     job_title,
     company_name FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE job_title ILIKE '%' || $1 || '%'`,
