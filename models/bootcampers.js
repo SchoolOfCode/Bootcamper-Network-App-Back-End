@@ -341,9 +341,12 @@ async function getBootcamperByJobSatisfaction() {
     photo_url,
     first_name,
     surname,
+    bootcampers.company_id,
+    company_name,
+    salary,
+    cohort_num,
     job_satisfaction,
-    new_job
-    FROM bootcampers WHERE job_satisfaction <= 3`
+    bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE job_satisfaction <= 3`
   );
   console.log(`GET: getbootcamperbyjobsatisfaction Results:`, data.rows);
   return data.rows;
@@ -355,9 +358,12 @@ async function getBootcamperByNewJob() {
     photo_url,
     first_name,
     surname,
+    bootcampers.company_id,
+    company_name,
+    salary,
+    cohort_num,
     job_satisfaction,
-    new_job
-    FROM bootcampers WHERE new_job = 'yes'`
+    bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE new_job = 'yes'`
   );
   console.log(`GET: getbootcamperbyjobsatisfaction Results:`, data.rows);
   return data.rows;

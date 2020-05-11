@@ -2,82 +2,6 @@ const { query } = require("../index");
 
 const bootcampers = [
   {
-    bootcamper_id: 1,
-    uid: "nsrVWUd00gQg5wsfULkOyZHeQsp2",
-    email: "jlneville92@gmail.com",
-    photo_url:
-      "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-tipping-hand.png",
-    first_name: "Jodie",
-    surname: "Neville",
-    aboutme: "Hi Bab, I am loving all of the code.",
-    job_title: "Full Stack Developer",
-    salary: "£50,000",
-    start_date: "2011-03-20",
-    previous_roles: [
-      { jobTitle: "Full Stack Developer", Company: "Santander" },
-      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
-    ],
-    cohort_num: 3,
-    region: "Birmingham",
-    job_satisfaction: 4,
-    new_job: "yes",
-    twitter: "https://twitter.com/jodieneville",
-    github: "https://github.com/nevillejodie",
-    portfolio: "https://www.jodieneville.co.uk",
-    linkedin: "https://www.linkedin.com/in/jlneville/",
-  },
-  {
-    bootcamper_id: 2,
-    uid: "e1IAjCkCN2QOnn66lSrC2YlLRKs1",
-    email: "mellkayrusson@gmail.com",
-    photo_url:
-      "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-tipping-hand.png",
-    first_name: "Mell",
-    surname: "Kay",
-    aboutme: "A super developer who loves React Native.",
-    job_title: "Full Stack Developer",
-    salary: "£45,000",
-    start_date: "2018-07-14",
-    previous_roles: [
-      { jobTitle: "Full Stack Developer", Company: "Santander" },
-      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
-    ],
-    cohort_num: 3,
-    region: "Birmingham",
-    job_satisfaction: 3,
-    new_job: "yes",
-    twitter: "https://twitter.com/MellKayR",
-    github: "https://github.com/MellKay",
-    portfolio: "https://www.mellkay.co.uk",
-    linkedin: "",
-  },
-  {
-    bootcamper_id: 3,
-    uid: "1t42I7AR4vfImOXCk4VFuUhv6B72",
-    email: "helen8297@gmail.com",
-    photo_url:
-      "https://lh3.googleusercontent.com/a-/AOh14GjrB5R5XShX5tTdqEEm2lFMEyUfylfnQstmhvHzfg",
-    first_name: "Helen",
-    surname: "Kent",
-    aboutme: "I love coding and avocados.",
-    job_title: "Full Stack Developer",
-    salary: "£100,000",
-    start_date: "2018-06-12",
-    previous_roles: [
-      { jobTitle: "Full Stack Developer", Company: "Santander" },
-      { jobTitle: "Full Stack Developer", Company: "Sainsburys" },
-    ],
-    cohort_num: 3,
-    region: "Birmingham",
-    job_satisfaction: 5,
-    new_job: "no",
-    twitter: "https://twitter.com/helen8297",
-    github: "https://github.com/helen8297",
-    portfolio: "https://www.helenkent.dev",
-    linkedin: "https://www.linkedin.com/in/helen8297/",
-  },
-  {
-    bootcamper_id: 4,
     uid: "1t42I7AR4vfImOXCk4VFuUhv6B71",
     email: "benben@gmail.com",
     photo_url:
@@ -86,7 +10,7 @@ const bootcampers = [
     surname: "Lee",
     aboutme: "Plays guitar",
     job_title: "Teacher",
-    company_id: 3,
+    company_id: 5,
     salary: "£35,000",
     start_date: "2019-10-05",
     previous_roles: [
@@ -103,7 +27,6 @@ const bootcampers = [
     linkedin: "https://www.linkedin.com/in/benlee/",
   },
   {
-    bootcamper_id: 5,
     uid: "1t42I7AR4vfImOXCk4VFuUhv6B79",
     email: "laura.ashcroft@gmail.com",
     photo_url:
@@ -112,6 +35,7 @@ const bootcampers = [
     surname: "Ashcroft",
     aboutme: "I love noodles",
     job_title: "Game Developer",
+    company_id: 7,
     salary: "£45,000",
     start_date: "2019-10-28",
     previous_roles: [
