@@ -19,7 +19,7 @@ const companies = [
     company_name: "Santander",
     description: "Leading financial services provider",
     logo:
-      "https://expandedramblings.com/wp-content/uploads/2016/03/McDonalds-Facts-and-Statistics-1200x1200.jpg",
+      "https://media-exp1.licdn.com/dms/image/C560BAQEXYx-GWHNC9Q/company-logo_200_200/0?e=1597276800&v=beta&t=mXQuiKQvcr6Zbb6FDaxxD3uSz08X47WonwyuVo3QZ8M",
     address: "Innovation Birmingham, Holt Street, Birmingham, West Midlands",
     postcode: "B7 4BP",
     website: "https://www.santandertechnology.co.uk/",
