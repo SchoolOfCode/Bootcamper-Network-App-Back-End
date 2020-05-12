@@ -33,8 +33,7 @@ const companies = [
       "Purplebricks is the world’s fastest growing estate agent and offers customer a fairer, more transparent and convenient way to buy, sell, or let.",
     logo:
       "https://media-exp1.licdn.com/dms/image/C4D0BAQEnUY6HfpONeA/company-logo_200_200/0?e=1595462400&v=beta&t=4HttFU9z3wPZGin7V9W7JFptsWoRYBW3wjD1ogQASt4",
-    address:
-      "Head Office: Suite 7, First Floor, Cranmore Place, Cranmore Drive, Shirley, Solihull",
+    address: "Cranmore Place, Cranmore Drive, Shirley, Solihull",
     postcode: "B90 4RZ",
     website: "https://purplebrickscareers.co.uk/",
     twitter: "https://twitter.com/purplebricksuk",

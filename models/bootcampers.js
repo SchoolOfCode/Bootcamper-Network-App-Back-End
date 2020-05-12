@@ -370,6 +370,19 @@ async function getBootcamperByNewJob() {
   return data.rows;
 }
 
+async function getPreviousMessagesFromDb() {
+  const data = await query(
+    `SELECT messages.bootcamper_id, first_name,
+    surname,
+    photo_url,
+    message,
+    sent
+    FROM messages LEFT JOIN bootcampers ON messages.bootcamper_id = bootcampers.bootcamper_id ORDER BY sent DESC LIMIT 30;`
+  );
+  console.log(`Get: allmessages Results:`, data.rows);
+  return data.rows;
+}
+
 module.exports = {
   getAllBootcampers,
   getBootcamperByName,
@@ -385,26 +398,5 @@ module.exports = {
   checkBootcamperByUid,
   getBootcamperByJobSatisfaction,
   getBootcamperByNewJob,
+  getPreviousMessagesFromDb,
 };
-
-//PREVIOUS QUERY FOR SEARCH BY UID
-// `SELECT uid,
-//     email,
-//     photo_url,
-//     first_name,
-//     surname,
-//     aboutme,
-//     job_title,
-//     bootcampers.company_id,
-//     company_name,
-//     salary,
-//     start_date,
-//     previous_roles,
-//     cohort_num,
-//     region,
-//     job_satisfaction,
-//     new_job,
-//     bootcampers.twitter,
-//     github,
-//     portfolio,
-//     bootcampers.linkedin FROM bootcampers LEFT JOIN companies ON bootcampers.company_id = companies.company_id WHERE uid = $1`
