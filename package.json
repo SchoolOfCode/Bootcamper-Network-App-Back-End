@@ -9,6 +9,7 @@
     "dev": "nodemon -r dotenv/config app.js",
     "dbcreatecompaniestable": "node -r dotenv/config ./db/scripts/createCompaniesTable.js",
     "dbcreatedashboardtable": "node -r dotenv/config ./db/scripts/createDashboardMessageTable.js",
+    "dbcreatemessagetable": "node -r dotenv/config ./db/scripts/createMessagesTable.js",
     "dbcreatebootcampertable": "node -r dotenv/config ./db/scripts/createBootcamperTable.js",
     "dbpopulateBootcampers": "node -r dotenv/config ./db/scripts/populateBootcampers.js",
     "dbpopulateCompanies": "node -r dotenv/config ./db/scripts/populateCompanies.js",

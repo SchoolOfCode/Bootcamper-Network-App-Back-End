@@ -15,6 +15,7 @@ const {
   checkBootcamperByUid,
   getBootcamperByJobSatisfaction,
   getBootcamperByNewJob,
+  getPreviousMessagesFromDb,
 } = require("../models/bootcampers.js");
 
 const router = express.Router();
@@ -167,6 +168,16 @@ router.delete("/bootcampers/:id", async function (req, res) {
   const data = await deleteBootcamper(id);
   console.log(`Log: You have deleted a bootcamper. Data: ${data}`);
   res.send(`You have deleted a bootcamper`);
+});
+
+router.get("/bootcampers/allpreviousmessages", async function (req, res) {
+  const previousMessages = await getPreviousMessagesFromDb();
+  res.json({
+    success: true,
+    message: "Last 30 messages",
+    payload: previousMessages,
+  });
+  return;
 });
 
 module.exports = router;
