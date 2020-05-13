@@ -90,6 +90,45 @@ const companies = [
     twitter: "https://twitter.com/voxpopme",
     linkedin: "https://www.linkedin.com/company/voxpopme/about/",
   },
+  {
+    company_id: 8,
+    company_name: "Wealth Wizards",
+    description:
+      "We're here to make financial advice affordable and accessible to all. ",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C4D0BAQF-ivQX1ed_9g/company-logo_200_200/0?e=1597276800&v=beta&t=0K4kOBv5eVCdwJF0RXcBB4BBfKcjWm-u55xYCXSU0Uw",
+    address: "Wizards House 8 Athena Court Tachbrook Park Leamington Spa",
+    postcode: "CV34 6RT",
+    website: "https://www.wealthwizards.com/",
+    twitter: "https://twitter.com/wealthwizards",
+    linkedin: "https://www.linkedin.com/company/wealth-wizards-limited/",
+  },
+  {
+    company_id: 9,
+    company_name: "Amigo Technology",
+    description:
+      "Amigo is a fast, low-risk and cost-efficient way for enterprises to deliver new digital experiences on top of legacy technology.",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C4D0BAQGLM0RmBa8pVw/company-logo_200_200/0?e=1597276800&v=beta&t=vrnuXnyNmVvB-E9ZA4lCAgnX3pxZOdxBxyKKL-QSWhM",
+    address: "156 Great Charles Street Queensway Birmingham",
+    postcode: "B3 3HN",
+    website: "https://amigotechnology.com/",
+    twitter: "https://twitter.com/AmigoTechnology",
+    linkedin: "https://www.linkedin.com/company/amigotechnology/",
+  },
+  {
+    company_id: 10,
+    company_name: "DRPG",
+    description:
+      "We are a fully integrated, global creative communications group",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C4E0BAQFx8ptUOsNFjA/company-logo_200_200/0?e=1597276800&v=beta&t=91_DPA676vIFeMOhP0-5LNPaMlOA-iGWz2JrwmJhsyc",
+    address: "Studio 212 Ikon Estate Droitwich Road Hartlebury",
+    postcode: "DY10 4EU",
+    website: "https://www.drpgroup.com/",
+    twitter: "https://twitter.com/drpgroup",
+    linkedin: "https://www.linkedin.com/company/drpgroup/",
+  },
 ];
 
 async function populateCompanies() {
