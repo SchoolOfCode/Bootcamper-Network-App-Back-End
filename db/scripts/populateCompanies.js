@@ -17,7 +17,7 @@ const companies = [
   {
     company_id: 2,
     company_name: "Santander",
-    description: "Leading financial services provider",
+    description: "Leading financial services provider.",
     logo:
       "https://media-exp1.licdn.com/dms/image/C560BAQEXYx-GWHNC9Q/company-logo_200_200/0?e=1597276800&v=beta&t=mXQuiKQvcr6Zbb6FDaxxD3uSz08X47WonwyuVo3QZ8M",
     address: "Innovation Birmingham, Holt Street, Birmingham, West Midlands",
@@ -89,6 +89,45 @@ const companies = [
     website: "https://site.voxpopme.com/en/",
     twitter: "https://twitter.com/voxpopme",
     linkedin: "https://www.linkedin.com/company/voxpopme/about/",
+  },
+  {
+    company_id: 11,
+    company_name: "Monzo",
+    description:
+      "At Monzo, we’re building a new kind of bank. One that lives on your smartphone and built for the way you live today. By solving your problems, treating you fairly and being totally transparent, we believe we can make banking better.",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C560BAQEkEHKHA3JWtQ/company-logo_200_200/0?e=1597276800&v=beta&t=A4Bf-017_YhYNjUnyqpSEQjhyr2oAWUaHp5gf_6hg5A",
+    address: "38 Finsbury Square, Finsbury, London",
+    postcode: "EC2A 1PX",
+    website: "https://monzo.com/careers/",
+    twitter: "https://twitter.com/monzo",
+    linkedin: "https://www.linkedin.com/company/monzo-bank/",
+  },
+  {
+    company_id: 12,
+    company_name: "BlackCat Solutions Ltd",
+    description:
+      "Our mission is to enhance the growth of our customers by the provision of expert software development consultancy services that they can rely on to deliver their strategic business goals. Software is our entire business.  We combine technical excellence with core values of honesty, transparency and plain-dealing at all times, addressing capability and capacity gaps and keeping our customers strategic programmes on track.",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C560BAQHtZEWp9TeA6g/company-logo_200_200/0?e=1597276800&v=beta&t=23S9ndPiA5BdLgqjOX6YMSgkGp0TDRv1pIOYGXgjKP8",
+    address: "Two Colmore Square 38 Colmore Circus, Queensway, Birmingham",
+    postcode: "B4 6BN",
+    website: "https://blackcatsolutions.co.uk/careers/",
+    twitter: "https://twitter.com/blackcatsolutns",
+    linkedin: "https://www.linkedin.com/company/blackcat-solutions-ltd/",
+  },
+  {
+    company_id: 13,
+    company_name: "Day Out With The Kids",
+    description:
+      "Day Out With The Kids is the UK’s largest family days out platform, with 26 million annual site visits and over 7,000 of the UK’s best things to do promoted to its huge audience of parents.",
+    logo:
+      "https://media-exp1.licdn.com/dms/image/C510BAQEbzjwTmD1wvA/company-logo_200_200/0?e=1597276800&v=beta&t=tqowTDo3ROpqbennrq_0uxzAZR-YejX0dyX6wvBhq9A",
+    address: "6 Sovereign Rd, Kings Norton Business Centre, Birmingham",
+    postcode: "B30 3FJ",
+    website: "https://www.dayoutwiththekids.co.uk/jobs",
+    twitter: "https://twitter.com/dowtkids",
+    linkedin: "https://www.linkedin.com/company/dayoutwiththekids/",
   },
 ];
 
