@@ -1,7 +1,7 @@
 const { query } = require("../db/index");
 
 async function getAllBootcampers() {
-  const data = await query(`SELECT * FROM bootcampers`);
+  const data = await query(`SELECT * FROM bootcampers ORDER BY surname ASC`);
   console.log(`GET: getallbootcampers Results:`, data.rows);
   return data.rows;
 }
