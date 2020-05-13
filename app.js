@@ -11,11 +11,11 @@ var http = require("http").createServer(app);
 const { query } = require("./db/index");
 var io = require("socket.io")(http);
 
+app.use(cors());
 app.use((req, res, next) => {
   console.log(`${req.method} request received to ${req.url}"`);
   next();
 });
-app.use(cors());
 app.use(express.json()); //to parse post requests
 
 app.get("/health", (req, res) => {
